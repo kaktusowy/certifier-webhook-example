@@ -107,12 +107,16 @@ npx nx serve backend
 To run the frontend dev server:
 
 ```sh
-npx nx build frontend
+npx nx dev frontend
 ```
 
 ### 8. Send a sample request
 
-You can send a sample request and check if the Airtable workspace was updated.
+To send a request to the local API server, you can use the sample request below. Simply replace `<your_credential_id>` with the credential ID returned from the Webhook (refer to step 2).
+
+```sh
+curl -X POST http://localhost:3000/v1/certifier-webhook -H "Content-Type: application/json" -d '{"id":"test-id","data":{"resource":{"id":"<your_credential_id>","type":"credential"}},"type":"credential.issued","createdAt":"2025-06-15T16:48:02.607Z"}'
+```
 
 ## Endpoints
 
@@ -168,14 +172,6 @@ Returns all credentials from the Airtable workspace.
 
 - **`200`** Success
 - **`500`** Failure, when any error
-
-## Local Request Example
-
-To send a request to the local API server, you can use the sample request below. Simply replace `<your_credential_id>` with the credential ID returned from the Webhook (refer to step 2).
-
-```sh
-curl -X POST http://localhost:3000/v1/certifier-webhook -H "Content-Type: application/json" -d '{"id":"test-id","data":{"resource":{"id":"<your_credential_id>","type":"credential"}},"type":"credential.issued","createdAt":"2025-06-15T16:48:02.607Z"}'
-```
 
 ## Running Tests
 
