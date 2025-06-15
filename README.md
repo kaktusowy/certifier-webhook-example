@@ -66,9 +66,8 @@ docker-compose -f docker-compose.dev.yml up -d
 
 ### 5. Setup environment variables
 
-1. Go to `/apps/backend`.
-2. Clone `.env.example` and name it `.env`.
-3. Set the environment variables.
+1. Clone `.env.example` in `apps/backend` and name it `.env`.
+2. Set the environment variables.
 
 Below is the list of environment variables required for the application:
 
@@ -93,11 +92,8 @@ Below is the list of environment variables required for the application:
 
 ### 6. Setup Prisma
 
-1. Go to `/apps/backend`.
-2. Run this command:
-
 ```sh
-npx prisma migrate dev
+npx nx migrateDev backend
 ```
 
 ### 7. Start the servers
